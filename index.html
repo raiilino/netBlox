@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>NetBlox 3D | Laboratório de Redes</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+</head>
+<body>
+<div id="game-container"></div>
+<header id="top-bar">
+ <div class="brand-badge"><div class="roblox-logo">N</div><div><h1>NetBlox 3D</h1><span id="topology-subtitle">Laboratório de Redes</span></div></div>
+ <div class="stats-pill"><div class="stat"><span class="label">CENÁRIO</span><span id="stage-counter" class="val">1 / 7</span></div><div class="stat"><span class="label">STATUS</span><span id="net-status" class="val ok">ONLINE</span></div><div class="stat"><span class="label">PONTOS</span><span id="score-val" class="val">0</span></div></div>
+</header>
+<nav id="topology-menu">
+ <button class="topo-btn active" data-topo="0">Ponto a ponto</button><button class="topo-btn" data-topo="1">Bluetooth</button><button class="topo-btn" data-topo="2">Estrela</button><button class="topo-btn" data-topo="3">Barramento</button><button class="topo-btn" data-topo="4">Anel</button><button class="topo-btn" data-topo="5">Malha</button><button class="topo-btn" data-topo="6">Árvore híbrida</button>
+</nav>
+<aside id="side-panel">
+ <h2 id="info-title">Laboratório de Redes</h2><p id="info-desc">Aprenda, teste e construa redes em um ambiente profissional.</p><div id="devices-list" class="device-tags"></div>
+ <section class="panel-section"><h3>🎨 Personalizar personagem</h3><label for="skin-select">Visual do avatar</label><select id="skin-select"><option value="blue">Azul profissional</option><option value="green">Verde tecnologia</option><option value="purple">Roxo criativo</option><option value="orange">Laranja energia</option></select></section>
+ <section class="panel-section"><h3>🛠️ Ferramentas de rede</h3><div class="action-buttons"><button id="btn-ping" class="btn-primary">📡 Testar conectividade</button><button id="btn-fault" class="btn-danger">⚡ Simular falha</button><button id="btn-repair" class="btn-success">🔧 Reparar enlaces</button><button id="btn-reset" class="btn-neutral">↻ Reposicionar avatar</button></div></section>
+ <section class="panel-section builder"><h3>🏗️ Criar topologia do zero</h3><p>Adicione equipamentos e clique em dois dispositivos para conectá-los.</p><div class="builder-buttons"><button data-device="pc">＋ Computador</button><button data-device="router">＋ Roteador</button><button data-device="switch">＋ Switch</button><button data-device="server">＋ Servidor</button></div><button id="btn-clear-custom" class="btn-neutral full">Limpar minha rede</button><small id="builder-hint">Adicione pelo menos dois equipamentos para começar.</small></section>
+ <section class="panel-section"><h3>🎯 Missão</h3><p id="mission-text">Conheça as topologias de exemplo e pratique os testes de rede.</p><button id="btn-complete-mission" class="btn-success full">Concluir missão</button></section>
+ <div class="sound-row"><span>♪ Música ambiente</span><button id="btn-music" class="btn-neutral">Ativar som</button></div>
+ <div id="log-box"><div class="log-entry info">[Sistema] Bem-vindo ao laboratório NetBlox!</div></div>
+</aside>
+<div id="controls-hint"><span><b>WASD:</b> mover</span><span><b>ESPAÇO:</b> pular</span><span><b>SHIFT:</b> correr</span><span><b>Arrastar:</b> girar câmera</span><span><b>Clique nos dispositivos:</b> conectar no modo criação</span></div>
+<div id="mobile-dpad"><button data-key="KeyW">▲</button><div class="mid-row"><button data-key="KeyA">◀</button><button data-key="Space">●</button><button data-key="KeyD">▶</button></div><button data-key="KeyS">▼</button></div>
+<div id="tutorial-overlay" class="overlay"><div class="dialog tutorial-dialog"><div class="eyebrow">NETBLOX ACADEMY · TUTORIAL</div><h2>Bem-vindo ao Laboratório de Redes</h2><p>Antes de construir sua própria rede, conheça os modelos que profissionais utilizam.</p><div class="tutorial-steps"><article><b>01 · Explore</b><span>Use WASD para caminhar e arraste o mouse para observar o laboratório.</span></article><article><b>02 · Estude os exemplos</b><span>Selecione Ponto a Ponto, Estrela, Barramento, Anel, Malha ou Árvore para visualizar cada estrutura.</span></article><article><b>03 · Construa</b><span>Adicione computadores, roteadores, switches e servidores. Clique em dois equipamentos para criar um enlace.</span></article><article><b>04 · Teste e conclua</b><span>Envie um teste de conectividade e conclua a missão para receber sua mensagem de parabéns.</span></article></div><div class="tutorial-example"><b>Exemplo rápido: topologia estrela</b><span>Todos os computadores se conectam a um equipamento central, como um switch ou roteador.</span></div><button id="btn-start-tutorial" class="btn-primary full">Começar experiência</button></div></div>
+<div id="congrats-overlay" class="overlay hidden"><div class="dialog congrats-dialog"><div class="confetti-mark">✦</div><div class="eyebrow">MISSÃO CONCLUÍDA</div><h2>Parabéns!</h2><p id="congrats-message">Você concluiu a missão com sucesso!</p><button id="btn-close-congrats" class="btn-primary full">Continuar explorando</button></div></div>
+<script src="js/topologies.js"></script><script src="js/game.js"></script>
+</body></html>
